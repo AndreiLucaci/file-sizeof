@@ -3,7 +3,7 @@ import IECSizeOfService from './services/IECSizeOfService';
 import ISizeOfService from './services/ISizeOfService';
 import SISizeOfService from './services/SISizeOfService';
 
-export default {
+export const sizeof = {
   SI: (input: string | Buffer): ISizeOf => {
     const sizeOfService: ISizeOfService = new SISizeOfService(input);
 
