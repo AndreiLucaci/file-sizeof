@@ -6,11 +6,13 @@ export default abstract class SizeOfService implements ISizeOfService {
   protected size: number;
   protected internalSizeOf!: ISizeOf;
 
-  constructor(input: string | Buffer) {
+  constructor(input: string | Buffer | number) {
     if (Buffer.isBuffer(input)) {
       this.size = input.byteLength;
-    } else {
+    } else if (typeof input === 'string') {
       this.size = statSync(input).size;
+    } else {
+      this.size = input;
     }
 
     this.processSize();
